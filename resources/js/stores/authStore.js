@@ -10,5 +10,17 @@ export const useAuthStore = defineStore('authStore', () => {
         userData.value = newUserData
     }
 
-    return {userData, setUserData}
+    const init = async () => {
+        await axios.get('/api/user')
+            .then((response) => {
+                if (response.data && response.status === 200) {
+                    setUserData(response.data)
+                }
+            })
+            .catch((error) => {
+                return false
+            })
+    }
+
+    return {userData, setUserData, init}
 })

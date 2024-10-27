@@ -8,20 +8,17 @@ const router = createRouter({
             path: '/',
             component: () => import('./pages/Index.vue')
         },
-        {
-            path: '/login',
-            component: () => import('./pages/user/Login.vue')
-        }
     ]
 })
 
-router.beforeEach((to, from) => {
+router.beforeEach(async (to, from) => {
     const authStore = useAuthStore()
+    await authStore.init()
 
-    // Redirect the user to the login page if the user is not authenticated
-    // And not already attempting to visit the login or register pages
     if (!authStore.userData && to.path !== '/login' && to.path !== '/register') {
-        return '/login'
+        window.location.href = '/login'
+
+        return false
     }
 })
 

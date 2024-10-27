@@ -7,9 +7,15 @@ const menuList = [
 	{icon: 'notifications', label: 'Powiadomienia'},
 	{icon: 'drafts', label: 'Wiadomości'},
 	{separator: true},
-	{icon: 'logout', label: 'Wyloguj się'},
+	{icon: 'logout', label: 'Wyloguj się', href: '/logout'},
 	{icon: 'settings', label: 'Ustawienia'}
 ]
+
+const clickMenu = (menuItem) => {
+	if (menuItem.href) {
+		window.location.href    = menuItem.href
+	}
+}
 </script>
 
 <template>
@@ -29,7 +35,7 @@ const menuList = [
 					<template v-for="(menuItem, index) in menuList" :key="index">
 						<q-separator :key="'sep' + index" v-if="menuItem.separator" class="bg-blue-4 !mt-8 !mb-4"/>
 
-						<q-item clickable :active="menuItem.label === 'Outbox'" v-ripple v-else>
+						<q-item clickable :active="menuItem.label === 'Outbox'" v-ripple @click="clickMenu(menuItem)" v-else>
 							<q-item-section avatar>
 								<q-icon :name="menuItem.icon"/>
 							</q-item-section>
