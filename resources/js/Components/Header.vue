@@ -20,11 +20,25 @@ const search = ref('')
 			outlined
 			dense
 			placeholder="Szukaj..."
-			class="w-96 mr-12"
+			class="w-64 mr-12"
 			rounded
 			v-model="search"
 		/>
 
+		<q-btn-dropdown flat dense icon="add" label="Dodaj" class="mr-4">
+			<q-list>
+				<q-item clickable>
+					<q-item-section>
+						<q-item-label>Nowa rekrutacja</q-item-label>
+					</q-item-section>
+				</q-item>
+				<q-item clickable>
+					<q-item-section>
+						<q-item-label>Nowy kandydat</q-item-label>
+					</q-item-section>
+				</q-item>
+			</q-list>
+		</q-btn-dropdown>
 		<q-btn flat round dense icon="notifications"/>
 		<q-btn flat round dense icon="settings" class="ml-2"/>
 	</q-toolbar>

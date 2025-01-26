@@ -13,7 +13,7 @@ const menuList = [
 
 const clickMenu = (menuItem) => {
 	if (menuItem.href) {
-		window.location.href    = menuItem.href
+		window.location.href = menuItem.href
 	}
 }
 </script>
