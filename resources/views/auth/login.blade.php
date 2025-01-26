@@ -5,6 +5,16 @@
     <form class="py-6" method="POST" action="{{ route('login') }}">
         @csrf
 
+        <div class="text-center mb-4">
+            <h2 class="text-xl font-bold">Konto demonstracyjne:</h2>
+            <p class="mt-2 mb-0"><strong>email:</strong> test@example.com</p>
+            <p class="my-0"><strong>hasło:</strong> password</p>
+
+            <button type="button" class="mt-4 underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 js-fillCredentials">
+                Wypełnij formularz automatycznie danymi testowymi
+            </button>
+        </div>
+
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Adres e-mail')" />
@@ -44,4 +54,17 @@
             </x-primary-button>
         </div>
     </form>
+
+
+    @push('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelector('.js-fillCredentials').addEventListener('click', function () {
+                    console.log('jest')
+                    document.getElementById('email').value = 'test@example.com'
+                    document.getElementById('password').value = 'password'
+                })
+            })
+        </script>
+    @endpush
 </x-guest-layout>
