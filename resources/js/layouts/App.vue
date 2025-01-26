@@ -24,7 +24,7 @@ const clickMenu = (menuItem) => {
 			v-model="drawer"
 			:width="350"
 			:breakpoint="500"
-			class="bg-blue-7 pt-6 text-white px-4 rounded-r-2xl"
+			class="bg-blue-700 pt-6 text-white px-4"
 		>
 			<q-scroll-area class="fit">
 				<h2 class="text-h4 !font-extrabold mb-10 pl-4 pt-4">
@@ -51,7 +51,7 @@ const clickMenu = (menuItem) => {
 		<q-page-container>
 			<Header class="fixed top-0 z-50"/>
 
-			<q-page class="q-pa-md bg-grey-2 !pt-[105px]">
+			<q-page class="q-pa-lg bg-grey-2 !pt-[115px]">
 				<router-view/>
 			</q-page>
 		</q-page-container>
